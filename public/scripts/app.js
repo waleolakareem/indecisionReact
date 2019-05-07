@@ -6,6 +6,10 @@
 //title should have title property and subtitle property
 //render template
 
+
+//if statements
+//ternary operators
+//logical and operators
 var title = {
   title: "Amazing",
   subtitle: "indecision app"
@@ -25,25 +29,37 @@ var template = React.createElement(
   )
 );
 
+var user = {
+  // name: 'Wale Olakareem',
+  age: 26,
+  location: 'San Francisco'
+};
+function getLocation(location) {
+  if (location) {
+    return React.createElement(
+      "p",
+      null,
+      "Location: ",
+      location
+    );
+  }
+}
+
 var template2 = React.createElement(
   "div",
   null,
   React.createElement(
     "h1",
     null,
-    "Oladejo Olakareem"
+    user.name ? user.name : 'Anonymous'
   ),
   React.createElement(
     "p",
     null,
     "Age:26"
   ),
-  React.createElement(
-    "p",
-    null,
-    "Location: Philadepia"
-  )
+  getLocation(user.location)
 );
 var appRoot = document.getElementById('app');
 
-ReactDOM.render(template, appRoot);
+ReactDOM.render(template2, appRoot);
