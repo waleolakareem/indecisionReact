@@ -10,7 +10,7 @@
 //if statements
 //ternary operators
 //logical and operators
-var app = {
+const app = {
   title:"Amazing",
   subtitle : "indecision app",
   options: ['One','two']
@@ -21,7 +21,7 @@ function getOptions(option) {
     return  <p>Here are your {option}</p>
   }
 }
-var template = (
+const template = (
   <div>
     <h1>{app.title && <p> title: {app.title}</p>}</h1>
     <h1>{app.subtitle ? app.subtitle : 'No subs'}</h1>
@@ -29,8 +29,8 @@ var template = (
   </div>
 )
 
-var user = {
-  // name: 'Wale Olakareem',
+const user = {
+  name: 'Wale Olakareem',
   age: 26,
   location: 'San Francisco'
 }
@@ -40,7 +40,7 @@ function getLocation(location) {
   }
 }
 
-var template2 = (
+const template2 = (
   <div>
     <h1>
       {user.name ? user.name : 'Anonymous'}
@@ -50,7 +50,7 @@ var template2 = (
 
   </div>
 )
-var appRoot = document.getElementById('app');
+const appRoot = document.getElementById('app');
 
 
 ReactDOM.render(template, appRoot)
