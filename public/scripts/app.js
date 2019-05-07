@@ -6,24 +6,64 @@
 //title should have title property and subtitle property
 //render template
 
-var title = {
+//only render the subtitle(and ptag) if subtitle exist - Logical and operator
+//render new p tag - if option.length >8 "Here are your options" "No options"
+
+//if statements
+//ternary operators
+//logical and operators
+var app = {
   title: "Amazing",
-  subtitle: "indecision app"
+  subtitle: "indecision app",
+  options: ['One', 'two']
 };
+
+function getOptions(option) {
+  if (option.length >= 2) {
+    return React.createElement(
+      "p",
+      null,
+      "Here are your ",
+      option
+    );
+  }
+}
 var template = React.createElement(
   "div",
   null,
   React.createElement(
     "h1",
     null,
-    title.title
+    app.title && React.createElement(
+      "p",
+      null,
+      " title: ",
+      app.title
+    )
   ),
   React.createElement(
     "h1",
     null,
-    title.subtitle
-  )
+    app.subtitle ? app.subtitle : 'No subs'
+  ),
+  getOptions(app.options)
 );
+
+var user = {
+  // name: 'Wale Olakareem',
+  age: 26,
+  location: 'San Francisco'
+};
+function getLocation(location) {
+  if (location) {
+    return React.createElement(
+      "p",
+      null,
+      "Location: ",
+      location
+    );
+  }
+}
 
 var template2 = React.createElement(
   "div",
@@ -31,18 +71,15 @@ var template2 = React.createElement(
   React.createElement(
     "h1",
     null,
-    "Oladejo Olakareem"
+    user.name ? user.name : 'Anonymous'
   ),
-  React.createElement(
+  user.age >= 18 && React.createElement(
     "p",
     null,
-    "Age:26"
+    "Age:",
+    user.age
   ),
-  React.createElement(
-    "p",
-    null,
-    "Location: Philadepia"
-  )
+  getLocation(user.location)
 );
 var appRoot = document.getElementById('app');
 
