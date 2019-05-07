@@ -30,7 +30,7 @@ var template = (
 )
 
 var user = {
-  // name: 'Wale Olakareem',
+  name: 'Wale Olakareem',
   age: 26,
   location: 'San Francisco'
 }
