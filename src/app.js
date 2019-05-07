@@ -4,18 +4,28 @@
 //title should have title property and subtitle property
 //render template
 
+//only render the subtitle(and ptag) if subtitle exist - Logical and operator
+//render new p tag - if option.length >8 "Here are your options" "No options"
 
 //if statements
 //ternary operators
 //logical and operators
-var title = {
+var app = {
   title:"Amazing",
-  subtitle : "indecision app"
+  subtitle : "indecision app",
+  options: ['One','two']
+}
+
+function getOptions(option) {
+  if (option.length >= 2) {
+    return  <p>Here are your {option}</p>
+  }
 }
 var template = (
   <div>
-    <h1>{title.title}</h1>
-    <h1>{title.subtitle}</h1>
+    <h1>{app.title && <p> title: {app.title}</p>}</h1>
+    <h1>{app.subtitle ? app.subtitle : 'No subs'}</h1>
+    {getOptions(app.options)}
   </div>
 )
 
@@ -43,4 +53,4 @@ var template2 = (
 var appRoot = document.getElementById('app');
 
 
-ReactDOM.render(template2, appRoot)
+ReactDOM.render(template, appRoot)
